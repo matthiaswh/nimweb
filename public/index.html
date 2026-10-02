@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>nimweb — shared-stack todo</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 620px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1 { font-size: 1.4rem; }
+    p.sub { color: #888; font-size: .85rem; margin-top: -.5rem; }
+    #app { margin-top: 1.5rem; }
+    #form { display: flex; gap: .5rem; margin-bottom: 1rem; }
+    #form input[type=text] { flex: 1; padding: .5rem; font-size: 1rem; }
+    #form button { padding: .5rem 1rem; }
+    ul#list { list-style: none; padding: 0; }
+    li { display: flex; align-items: center; gap: .5rem; padding: .4rem 0;
+         border-bottom: 1px solid #eee; }
+    li span.title { flex: 1; }
+    li.done span.title { text-decoration: line-through; color: #888; }
+    #error { color: #c00; min-height: 1.2em; margin: .5rem 0; }
+  </style>
+</head>
+<body>
+  <h1>nimweb todo</h1>
+  <p class="sub">One Nim repo: shared <code>types.nim</code> compiled to both a
+     C server and JS frontend.</p>
+
+  <div id="app">
+    <form id="form" autocomplete="off">
+      <input type="text" id="new-title" placeholder="What needs doing?"
+             maxlength="140">
+      <button type="submit">Add</button>
+    </form>
+    <div id="error"></div>
+    <ul id="list"></ul>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
